@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-header">
+    <h2>List of Houses!</h2>
+</div>
+<div class="houses">
+    {% for house in houses %}
+    <div class="house">
+        <h3><a href="/houses?house={{ house['name'] }}">{{ house['name'] }}</a></h3>
+        <div class="houseInfo">
+            <p><a href="/houses?house={{ house['name'] }}">Character List</a></p>
+            <p>Colors: {% for color in house['colors'] %}{{ color }} | {% endfor %}</p>
+            <p>Founder: {{ house['founder']}}</p>
+            <p>Head of House: {{ house['headOfHouse']}}</p>
+            <p>House Ghost: {{ house['houseGhost']}}</p>
+            <p>Mascot: {{ house['mascot']}}</p>
+            <p>Values: {% for value in house['values'] %}{{ value }} |{% endfor %}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

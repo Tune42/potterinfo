@@ -1,0 +1,140 @@
+body{
+    background-image: url('../static/background.jpg');
+    background-size: 100%;
+    background-repeat: repeat;
+    background-color: rgba(0, 0, 0, 0.959);
+}
+
+a{
+    color: white;
+}
+
+h3{
+    padding-left: 1em;
+    font-family: 'Comic Neue', cursive;
+    color: white;
+}
+
+h2{
+    color: white;
+    font-family: 'Comic Neue', cursive;
+}
+
+table {
+    font-family: 'Comic Neue', cursive;
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    border-left: unset;
+    border-right: unset;
+    text-align: left;
+    padding: 8px;
+    border-color: white;
+    color: white;
+}
+
+input[type="radio"]{
+    margin: 0 10px 0 10px;    
+}
+
+.selections{
+    padding-top: 26px;
+    padding-left: 50%;
+    display: flex;
+}
+
+#tableSearch {
+    /* background-image: url('/css/searchicon.png'); Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 95%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.menu-frame {
+    list-style-type: none;
+    margin-top: 0px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 3em;
+    display:inline-flex;
+    background-color: rgb(168, 3, 3);
+    border-style: groove;
+    border-color: darkslategray;
+    border-radius: 1em;
+    border-width: 4px;
+    font-family: 'Comic Neue', cursive;
+}
+
+.menu-item{
+    font-size: 32px;
+    padding-left: 1em;
+    text-shadow: 3em;
+}
+
+.content-header{
+    display: flex;
+    color: white;
+}
+
+.content{
+    position: relative;
+    border-style: solid;
+    border-color:darkred;
+    border-radius: 1em;
+    margin-top: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.index{
+    position: relative;
+    border-style: solid;
+    border-color:darkred;
+    border-radius: 1em;
+    margin-top: 8px;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 32em;
+}
+
+.houses{
+    display: flex;
+}
+
+.houseInfo{
+    font-family: 'Comic Neue', cursive;
+    color: white;
+    border: rgb(141, 120, 0);
+    border-style: solid;
+    border-left: unset;
+    border-right: unset;
+    padding-left: 3em;
+}
+
+.roster {
+    padding-left: 1em;
+    font-size: 20px;
+    list-style-type: none;
+}
+
+.houseDetails{
+    font-family: 'Comic Neue', cursive;
+    color: white;
+    border: rgb(141, 120, 0);
+    border-style: solid;
+    border-left: unset;
+    border-right: unset;
+    padding-left: 3em;
+    display: flex;
+}
+
+.characterTrait{
+    padding-top: 1em;
+    color: white;
+}

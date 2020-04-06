@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-header">
+    <h2>List of Characters!</h2>
+</div>
+<input type="text" id="tableSearch" onkeyup="searchTable()" placeholder="Search..">
+<div>
+  <table id="myTable">
+    <tr class="tableHeader">
+      <th>Name</th>
+      <th>Species</th>
+      <th>Role</th>
+      <th>House</th>
+    </tr>
+    {% for character in characters %}
+    <tr>
+      <td><a href="characters?id={{ character['_id'] }}">{{ character['name'] }}</a></td>
+      <td>{% if 'species' in character %} {{ character['species'] }} {% else %} Not Listed {% endif %}</td>
+      <td>{% if 'role' in character %} {{ character['role'] }} {% else %} Not Listed {% endif %}</td>
+      <td>{% if 'house' in character %} {{ character['house'] }} {% else %} Not Listed {% endif %}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+
+  //Get Table Data
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  //Search Field Function
+  function searchTable() {
+    // Declare variables
+    var input, filter, td, i, txtValue;
+    input = document.getElementById("tableSearch");
+    filter = input.value.toUpperCase();
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0]; //spell name field
+      if (td) {
+        nameValue = td.textContent || td.innerText;
+        //query - spell name must match and be within the radio selection spell type
+        if (nameValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
+{% endblock %}

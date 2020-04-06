@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-header">
+  <h2>List of Spells!</h2>
+  <div class="selections">
+    <input type="radio" id="all" name="type" value="All" checked>
+    <label for="all">All</label><br>
+    <input type="radio" id="charm" name="type" value="Charm">
+    <label for="charm">Charms</label><br>
+    <input type="radio" id="enchantment" name="type" value="Enchantment">
+    <label for="enchantment">Enchantments</label><br>
+    <input type="radio" id="curse" name="type" value="Curse">
+    <label for="curse">Curses</label>
+    <input type="radio" id="spell" name="type" value="Spell">
+    <label for="spell">Spells</label>
+    <input type="radio" id="jinx" name="type" value="Jinx">
+    <label for="jinx">Jinxes</label>
+  </div>
+</div>
+<input type="text" id="tableSearch" onkeyup="searchTable()" placeholder="Search..">
+<table id="myTable">
+  <tr class="tableHeader">
+    <th>Spell</th>
+    <th>Effect</th>
+    <th>Type</th>
+  </tr>
+  {% for spell in spells %}
+  <tr>
+    <td>{{ spell['spell'] }}</td>
+    <td>{{ spell['effect'] }}</td>
+    <td>{{ spell['type'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
+
+{% block script %}
+<script>
+
+  //Get Table Data
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  //Search Field Function
+  function searchTable() {
+    // Declare variables
+    var input, filter, td, i, txtValue, typeValue, radios;
+    input = document.getElementById("tableSearch");
+    filter = input.value.toUpperCase();
+
+    // Get current radio selection
+    radios = document.getElementsByName('type');
+    for (i = 0; i < radios.length; i++){
+      if (radios[i].checked){
+        var spellType = radios[i].value;
+      }
+    }
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0]; //spell name field
+      od = tr[i].getElementsByTagName("td")[2]; //spell type field
+      if (td) {
+        nameValue = td.textContent || td.innerText;
+        typeValue = od.textContent || od.innerText;
+        //query - spell name must match and be within the radio selection spell type
+        if (nameValue.toUpperCase().indexOf(filter) > -1 && (typeValue == spellType || spellType == 'All')) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+  //Get radio buttons and add event listener function to each
+  var rad = document.getElementsByName('type');
+  for (var i = 0; i < rad.length; i++) {
+    rad[i].addEventListener('change', function() {
+      //clear search field
+      document.getElementById('tableSearch').value = "";
+      //get value of the radio button that has been selected
+      var filter = this.value;
+      //show all table data if All was selected
+      if (filter == "All"){
+        for (i = 0; i < tr.length; i++){
+          tr[i].style.display = "";
+        }
+      }
+      //otherwise get table data only matching the spell type
+      else {
+        for (i = 0; i < tr.length; i++){
+          td = tr[i].getElementsByTagName("td")[2];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue == filter){
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+      }
+    });
+  }
+
+</script>
+{% endblock %}

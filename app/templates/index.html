@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>Welcome to the Harry Potter Information page!</h2>
+<h3>This website indexes the Harry Potter API at potterapi.com. It is being developed as a project for CS50x, as well as being a personal/fun project that can serve as a playground for implementation ideas! Please poke around; find what wand your favorite character uses, browse house rosters, or look up spell types and effects!</h3>
+{% endblock %}
+
+{% block script %}
+<script>
+    var content = document.getElementsByClassName('content');
+    content[0].classList.add('index');
+    content[0].classList.remove('content');
+</script>
+{% endblock %}

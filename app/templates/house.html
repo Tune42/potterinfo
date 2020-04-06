@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-header">
+    <h2>{{ house['name'] }} House Character List!</h2>
+</div>
+<input type="text" id="tableSearch" onkeyup="searchTable()" placeholder="Search..">
+<div class="houseDetails">
+    <ul class="roster">
+        {% for character in house['members'] %}
+        <li class="member"><a href="/characters?id={{ character['_id'] }}">{{ character['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    function searchTable(){
+        var input = document.getElementById("tableSearch");
+        var filter = input.value.toUpperCase();
+        var characters = document.getElementsByClassName('member');
+        for (var i = 0; i < characters.length; i++) {
+            character = characters[i];
+            name = character.textContent || character.innerText;
+            if (name.toUpperCase().indexOf(filter) > -1){
+                character.style.display = "";
+            } else {
+                character.style.display = "none";
+            }
+        }
+    }
+</script>
+{% endblock %}

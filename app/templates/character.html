@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="content-header">
+    <h2>{{ character['name'] }}</h2>
+</div>
+<ul class="characterInfo">
+    <li class="characterTrait">Alias: {% if 'alias' in character %} {{ character['alias'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">Species: {% if 'species' in character %} {{ character['species'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">Role: {% if 'role' in character %} {{ character['role'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">House: {% if 'house' in character %} {{ character['house'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">School: {% if 'school' in character %} {{ character['school'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">BloodStatus: {% if 'bloodStatus' in character %} {{ character['bloodStatus'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">Wand: {% if 'wand' in character %} {{ character['wand'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">Patronus: {% if 'patronus' in character %} {{ character['patronus'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">Animagus: {% if 'animagus' in character %} {{ character['animagus'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">Boggart: {% if 'boggart' in character %} {{ character['boggart'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">DeathEater: {% if 'deathEater' in character %} {{ character['deathEater'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">DumbledoresArmy: {% if 'dumbledoresArmy' in character %} {{ character['dumbledoresArmy'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">MinistryOfMagic: {% if 'ministryOfMagic' in character %} {{ character['ministryOfMagic'] }} {% else %} Not Listed {% endif %}</li>
+    <li class="characterTrait">OrderOfThePhoenix: {% if 'orderOfThePhoenix' in character %} {{ character['orderOfThePhoenix'] }} {% else %} Not Listed {% endif %}</li>
+</ul>
+{% endblock %}
+
+{% block script %}
+<script>
+    var content = document.getElementsByClassName('content');
+    content[0].classList.add('index');
+    content[0].classList.remove('content');
+</script>
+{% endblock %}
