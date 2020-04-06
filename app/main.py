@@ -3,7 +3,7 @@ import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from tempfile import mkdtemp
 
-from functions import getJSON, getHouse, getCharacter
+from .functions import getJSON, getHouse, getCharacter
 
 # Configure application
 app = Flask(__name__)
