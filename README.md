@@ -1,1 +1,3 @@
-This site uses python/flask, along with html/css/javascript in order to display information from potterapi.com. It is hosted on Heroku and can be viewed at https://potterinfo-app.herokuapp.com/
+https://potterinfo-app.herokuapp.com/
+
+My first website! This is a python/flask application that makes requests to a fan-made API, returning the data using templating. First time writing custom CSS. Hosted on Heroku.
